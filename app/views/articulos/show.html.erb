@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @articulo.titulo %>
+</p>
+
+<p>
+  <strong>Contenido:</strong>
+  <%= @articulo.contenido %>
+</p>
+
+<%= link_to 'Editar', edit_articulo_path(@articulo),class:"btn btn-warning" %> |
+<%= link_to 'Atrás', articulos_path, class:"btn btn-danger" %>

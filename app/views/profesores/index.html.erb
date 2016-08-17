@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Profesores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Cedula</th>
+      <th>Telefono</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profesores.each do |profesor| %>
+      <tr>
+        <td><%= profesor.nombre %></td>
+        <td><%= profesor.apellido %></td>
+        <td><%= profesor.cedula %></td>
+        <td><%= profesor.telefono %></td>
+        <td><%= profesor.user %></td>
+        <td><%= link_to 'Ver', profesor, class:"btn btn-sucess" %></td>
+        <td><%= link_to 'Editar', edit_profesor_path(profesor), class:"btn btn-warning" %></td>
+        <td><%= link_to 'Eliminar', profesor, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Profesor', new_profesor_path %>
+
+<%= will_paginate @profesores, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente &raquo;' %>
+<br>
+Profesores: <%= @profesores.count %>
